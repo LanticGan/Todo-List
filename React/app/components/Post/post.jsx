@@ -21,7 +21,9 @@ class Post extends Component {
 					<input type="radio" name="priority" value="p3" />P3
 				</div>
 				<div className="post-confirm">
+					添加任务
 				</div>
+	
 			</div>
 		)
 	}
