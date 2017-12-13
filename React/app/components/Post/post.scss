@@ -1,0 +1,29 @@
+.post-container {
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 200px;
+	@media (max-width: 480px) {
+		width: 80% !important;
+	}
+	width: 480px;
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+	padding: 10px 20px;
+}
+
+.post-title {
+	label {
+		font-bold: 600;
+	}
+	.cancel-icon {
+		float: right;
+		width: 24px;
+		height: 24px;
+		img {
+			width: 100%;
+		}
+	}
+}

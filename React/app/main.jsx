@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Header from './components/Header/header.jsx';
+import Container from './components/container.jsx';
 
 ReactDom.render(
-	<Header />,
+	<Container />,
 	document.querySelector("#root")
 );

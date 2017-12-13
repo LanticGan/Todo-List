@@ -1,5 +1,6 @@
 $headerColor: #db4c3f;
 $headerHieght: 50px;
+$addIconSize: 24px;
 
 header {
 	display: fixed;
@@ -27,8 +28,8 @@ header {
 	.add-icon {
 		display: inline-block;
 		margin-left: 24px;
-		width: 24px;
-		height: 24px;
+		width: $addIconSize;
+		height: $addIconSize;
 		img {
 			width: 100%;
 		}
