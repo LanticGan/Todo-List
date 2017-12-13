@@ -1,5 +1,36 @@
-$fontColor: blue;
+$headerColor: #db4c3f;
+$headerHieght: 50px;
 
-.hl {
-	color: $fontColor;
+header {
+	display: fixed;
+	top: 0;
+	background: $headerColor;
+	height: $headerHieght;
+	width: 100%;
+}
+
+.header-content {
+	width: 50%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+
+	label {
+		color: #fff;
+		font-size:26px;
+	}
+
+	.add-icon {
+		display: inline-block;
+		margin-left: 24px;
+		width: 24px;
+		height: 24px;
+		img {
+			width: 100%;
+		}
+	}
 }

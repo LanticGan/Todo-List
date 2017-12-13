@@ -4,7 +4,14 @@ import './header.scss';
 class Header extends Component {
 	render() {
 		return (
-			<p className="hl">Hello World!</p>
+			<header>
+				<div className="header-content">
+					<label>TodoList</label>
+					<div className="add-icon">
+						<img src="assets/add.png" alt="+" />
+					</div>
+				</div>
+			</header>
 		)
 	}
 }
