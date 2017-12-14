@@ -15,9 +15,25 @@ class Post extends Component {
 
 	addItem(e) {
 		e.preventDefault();
+		let ctObj = new Date();
+		let itemPriority = Number(e.target.priority.value),
+			createTime = ctObj.getTime(),
+			itemContent = e.target.itemContent.value;
+		
+		/*
+		 默认优先级为3
+		*/
+		if (!itemPriority) {
+			itemPriority = 3;
+		}
+
+		let item = {
+			createTime: createTime,
+			priority: itemPriority,
+			content: itemContent
+		};
+		this.props.appendItem(item);
 		this.cancelPost();
-		let itemContent = e.target.itemContent.value;
-		this.props.appendItem(itemContent);
 	}
 
 	render() {
@@ -40,9 +56,9 @@ class Post extends Component {
 							<input type="submit" value="添加任务" className="post-confirm"/>
 							<div className="post-filter">
 								<p>设置优先级</p>
-								<input type="radio" name="priority" value="p3" />P3
-								<input type="radio" name="priority" value="p2" />P2
-								<input type="radio" name="priority" value="p1" />P1
+								<input type="radio" name="priority" value="3" />P3
+								<input type="radio" name="priority" value="2" />P2
+								<input type="radio" name="priority" value="1" />P1
 							</div>
 							
 						</form>

@@ -59,14 +59,15 @@ class DoingItems extends Component {
 		let isEditing = this.state.isEditing;
 		if (itemsContent.length) {
 			items = itemsContent.map((item, index) => {
+			let itemPrioriyClass = `priority-${item.priority}`
 			return (
 				<div className="item" key={index}>
-					<div className="done-box" name={index} onClick={this.completeItem}>
+					<div  className={`${itemPrioriyClass} done-box`} name={index} onClick={this.completeItem}>
 					</div>
 					{
 						!isEditing &&
 						<div className="item-content" onClick={this.showEdit}>
-							{item}
+							{item.content}
 						</div>
 					}	
 					{

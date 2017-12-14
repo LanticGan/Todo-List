@@ -24,7 +24,7 @@ class DoneItems extends Component {
 						<img src="assets/done.png"/>
 					</div>
 					<div className="item-content">
-						{item}
+						{item.content}
 					</div>
 					<div className="cancel" onClick={this.deleteItem}>
 						<img src="assets/cancel.png" name={index} />

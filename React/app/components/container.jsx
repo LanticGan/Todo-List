@@ -29,9 +29,9 @@ class Container extends Component {
 		});
 	}
 
-	appendItem(content) {
+	appendItem(item) {
 		let tempItems = this.state.doingItems;
-		tempItems.push(content);
+		tempItems.push(item);
 		this.setState({
 			doingItems: tempItems
 		});
@@ -70,7 +70,7 @@ class Container extends Component {
 
 	handleEditItem(index, content) {
 		let tempItems = this.state.doingItems;
-		tempItems[index] = content;
+		tempItems[index].content = content;
 		this.setState({
 			doingItems: tempItems
 		});
