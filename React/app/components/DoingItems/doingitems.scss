@@ -1,0 +1,29 @@
+.doing-items {
+	margin-top: 20px;
+	padding: 0 20px;
+	.item {
+		margin-top: 10px;
+		display: flex;
+		.done-box {
+			width: 18px;
+			height: 18px;
+			border: 1px solid #747474;
+			border-radius: 50%;
+		}
+
+		.item-content {
+			width: 80%;
+			border-bottom: 1px solid #efefef;
+			margin-left: 20px;
+		}
+
+		.cancel {
+			margin-left: 20px;
+			width: 28px;
+			height: 28px;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

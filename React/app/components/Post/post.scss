@@ -56,9 +56,9 @@
 	    text-align: center;
 		background-color: #db4c3f;
 	    color: #fff !important;
+	    border: 0;
 	    border-radius: 3px;
 		margin: 10px 10px 0 0;
-		cursor: pointer;
 	}
 
 	.post-confirm:hover {
@@ -74,5 +74,5 @@
 	bottom: 0;
 	left: 0;
 	z-index: -1000;
-	background: rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.3);
 }
