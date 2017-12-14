@@ -1,9 +1,9 @@
 $headerColor: #db4c3f;
-$headerHieght: 50px;
+$headerHieght: 3em;
 $addIconSize: 24px;
 
 header {
-	display: fixed;
+	position: fixed;
 	top: 0;
 	background: $headerColor;
 	height: $headerHieght;
@@ -22,7 +22,7 @@ header {
 
 	label {
 		color: #fff;
-		font-size:26px;
+		font-size: 2em;
 	}
 
 	.add-icon {
