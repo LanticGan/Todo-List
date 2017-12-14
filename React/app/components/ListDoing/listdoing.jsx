@@ -7,7 +7,6 @@ class ListDoing extends Component {
 		super(props);
 
 	}
-
 	render() {
 		return(
 			<div className="list-doing">
@@ -15,7 +14,11 @@ class ListDoing extends Component {
 					<label>正在进行</label>
 					<div className="items-number">{this.props.doingItemsNumber}</div>
 				</div>
-				<DoingItems items={this.props.items} handleDeleteItem={this.props.handleDeleteItem} />
+				<DoingItems 
+					items={this.props.items} 
+					handleDeleteItem={this.props.handleDeleteItem} 
+					handleCompleteItem={this.props.handleCompleteItem}
+					/>
 			</div>
 		);
 	}

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
+import DoneItems from '../DoneItems/doneitems.jsx';
 import './listdone.scss';
 
 class ListDone extends Component {
 	constructor(props) {
 		super(props);
 	}
-
 	render() {
 		return(
 			<div className="list-done">
@@ -13,6 +13,9 @@ class ListDone extends Component {
 					<label>已完成</label>
 					<div className="items-number">{this.props.doneItemsNumber}</div>
 				</div>
+				<DoneItems 
+					items={this.props.items} 
+					handleDeleteItem={this.props.handleDeleteItem} />
 			</div>
 		);
 	}

@@ -1,27 +1,16 @@
 import React, {Component} from 'react';
-import './doingitems.scss';
+import './doneitems.scss';
 
-class DoingItems extends Component {
+class DoneItems extends Component {
 
 	constructor(props) {
 		super(props);
 		this.deleteItem = this.deleteItem.bind(this);
-		this.completeItem = this.completeItem.bind(this);
-		this.editItem = this.editItem.bind(this);
 	}
 
 	deleteItem(e) {
 		let itemId = Number(e.target.name);
-		this.props.handleDeleteItem(itemId, 0);
-	}
-
-	completeItem(e) {
-		let itemId = Number(e.target.getAttribute('name'));
-		this.props.handleCompleteItem(itemId);
-	}
-
-	editItem(e) {
-		console.log(1)
+		this.props.handleDeleteItem(itemId, 1);
 	}
 
 	render() {
@@ -31,9 +20,10 @@ class DoingItems extends Component {
 			items = itemsContent.map((item, index) => {
 			return (
 				<div className="item" key={index}>
-					<div className="done-box" name={index} onClick={this.completeItem}>
+					<div className="done-box">
+						<img src="assets/done.png"/>
 					</div>
-					<div className="item-content" onClick="{}">
+					<div className="item-content">
 						{item}
 					</div>
 					<div className="cancel" onClick={this.deleteItem}>
@@ -44,11 +34,11 @@ class DoingItems extends Component {
 		}
 
 		return (
-			<div className="doing-items">
+			<div className="done-items">
 				{items}
 			</div>
 		);
 	}
 }
 
-export default DoingItems
+export default DoneItems

@@ -9,9 +9,12 @@ import './container.scss';
 class Container extends Component {
 	constructor(props) {
 		super(props);
-		this.handlePostShow = this.handlePostShow.bind(this);
+
 		this.appendItem = this.appendItem.bind(this);
+		this.handlePostShow = this.handlePostShow.bind(this);
 		this.handleDeleteItem = this.handleDeleteItem.bind(this);
+		this.handleCompleteItem = this.handleCompleteItem.bind(this);
+
 		this.state = {
 			postShow: false,
 			doingItems: [],
@@ -33,16 +36,39 @@ class Container extends Component {
 		});
 	}
 
-	handleDeleteItem(index) {
+	handleDeleteItem(index, type) {
+		/* 
+			type=0删除doingItems,
+			type=other删除doneItems.
+		*/
+		let tempItems = []
+		if (type == 0) {
+			tempItems = this.state.doingItems;
+			tempItems.splice(index, 1);
+			this.setState({
+				doingItems: tempItems
+			});
+		} else {
+			tempItems = this.state.doneItems;
+			tempItems.splice(index, 1);
+			this.setState({
+				doneItems: tempItems
+			});
+		}
+	}
+
+	handleCompleteItem(index) {
+		let doneItems = this.state.doneItems;
 		let tempItems = this.state.doingItems;
-		tempItems.splice(index, 1);
+		doneItems.push(tempItems[index]);
+		this.handleDeleteItem(index, 0);
 		this.setState({
-			doingItems: tempItems
+			doneItems: doneItems
 		});
 	}
 
 	render() {
-		let [postShow, doingItems] = [this.state.postShow, this.state.doingItems]
+		let [postShow, doingItems, doneItems] = [this.state.postShow, this.state.doingItems, this.state.doneItems];
 		return (
 			<div className="main-container"> 
 				<Header handlePostShow={this.handlePostShow} />
@@ -51,8 +77,17 @@ class Container extends Component {
 					show={postShow}
 					appendItem ={this.appendItem} 
 				/>
-				<ListDoing items={doingItems} doingItemsNumber={doingItems.length} handleDeleteItem={this.handleDeleteItem} />
-				<ListDone  doneItemsNumber="0" />
+				<ListDoing 
+					items={doingItems} 
+					doingItemsNumber={doingItems.length} 
+					handleDeleteItem={this.handleDeleteItem} 
+					handleCompleteItem={this.handleCompleteItem}
+				/>
+				<ListDone  
+					items={doneItems} 
+					doneItemsNumber={doneItems.length} 
+					handleDeleteItem={this.handleDeleteItem} 
+				/>
 			</div>
 		);
 	}
