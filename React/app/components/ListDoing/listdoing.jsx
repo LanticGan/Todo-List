@@ -18,6 +18,7 @@ class ListDoing extends Component {
 					items={this.props.items} 
 					handleDeleteItem={this.props.handleDeleteItem} 
 					handleCompleteItem={this.props.handleCompleteItem}
+					handleEditItem={this.props.handleEditItem}
 					/>
 			</div>
 		);

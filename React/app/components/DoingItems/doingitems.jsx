@@ -5,9 +5,17 @@ class DoingItems extends Component {
 
 	constructor(props) {
 		super(props);
+
 		this.deleteItem = this.deleteItem.bind(this);
 		this.completeItem = this.completeItem.bind(this);
 		this.editItem = this.editItem.bind(this);
+		this.showEdit = this.showEdit.bind(this);
+		this.submitNewItem = this.submitNewItem.bind(this);
+
+		this.state = {
+			isEditing: false,
+			editingItem: ''
+		}
 	}
 
 	deleteItem(e) {
@@ -21,24 +29,61 @@ class DoingItems extends Component {
 	}
 
 	editItem(e) {
-		console.log(1)
+		this.setState({
+			editingItem: e.target.value
+		})
+	}
+
+	submitNewItem(e) {
+		e.preventDefault();
+		let [itemIndex, newItemContent] = [Number(e.target.getAttribute('itemindex')), e.target.newitem.value];
+
+		this.setState({
+			isEditing: false
+		})
+		
+		this.props.handleEditItem(itemIndex, newItemContent);
+	}
+
+	showEdit(e) {
+		let text = e.target.textContent;
+		this.setState({
+			editingItem: text,
+			isEditing: true
+		})
 	}
 
 	render() {
-		let itemsContent = this.props.items;
-		let items = [];
+		let itemsContent = this.props.items,
+			items = [];
+		let isEditing = this.state.isEditing;
 		if (itemsContent.length) {
 			items = itemsContent.map((item, index) => {
 			return (
 				<div className="item" key={index}>
 					<div className="done-box" name={index} onClick={this.completeItem}>
 					</div>
-					<div className="item-content" onClick="{}">
-						{item}
-					</div>
-					<div className="cancel" onClick={this.deleteItem}>
-						<img src="assets/cancel.png" name={index} />
-					</div>
+					{
+						!isEditing &&
+						<div className="item-content" onClick={this.showEdit}>
+							{item}
+						</div>
+					}	
+					{
+						isEditing &&
+						<div className="edit-item">
+							<form onSubmit={this.submitNewItem} itemindex={index}>
+									<input className="item-input" type="text" name="newitem" 
+										value={this.state.editingItem} onChange={this.editItem} 
+										autoFocus
+									/>
+									<input type="submit" style={{display:'none'}} />
+							</form>
+						</div>
+					}
+						<div className="cancel" onClick={this.deleteItem}>
+							<img src="assets/cancel.png" name={index} />
+						</div>
 				</div>);
 			});
 		}

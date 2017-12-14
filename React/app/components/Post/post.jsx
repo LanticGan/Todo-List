@@ -35,7 +35,7 @@ class Post extends Component {
 						</div>
 						<form onSubmit={this.addItem}>
 							<div className="post-input">
-								<input type="text" name="itemContent" placeholder="请输入TodoItem" autoFocus/>
+								<input type="text" name="itemContent" placeholder="请输入todo item" autoFocus/>
 							</div>
 							<input type="submit" value="添加任务" className="post-confirm"/>
 							<div className="post-filter">

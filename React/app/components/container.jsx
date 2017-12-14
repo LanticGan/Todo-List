@@ -14,6 +14,7 @@ class Container extends Component {
 		this.handlePostShow = this.handlePostShow.bind(this);
 		this.handleDeleteItem = this.handleDeleteItem.bind(this);
 		this.handleCompleteItem = this.handleCompleteItem.bind(this);
+		this.handleEditItem = this.handleEditItem.bind(this);
 
 		this.state = {
 			postShow: false,
@@ -67,6 +68,14 @@ class Container extends Component {
 		});
 	}
 
+	handleEditItem(index, content) {
+		let tempItems = this.state.doingItems;
+		tempItems[index] = content;
+		this.setState({
+			doingItems: tempItems
+		});
+	}
+
 	render() {
 		let [postShow, doingItems, doneItems] = [this.state.postShow, this.state.doingItems, this.state.doneItems];
 		return (
@@ -82,6 +91,7 @@ class Container extends Component {
 					doingItemsNumber={doingItems.length} 
 					handleDeleteItem={this.handleDeleteItem} 
 					handleCompleteItem={this.handleCompleteItem}
+					handleEditItem={this.handleEditItem}
 				/>
 				<ListDone  
 					items={doneItems} 
