@@ -23,11 +23,16 @@
 		}
 	}
 
-	.list-doing-filter {
+	.list-doing-sort {
 		display: flex;
 		justify-content: center;
 		div {
-			margin: 10px 5px;
+			width: 24px;
+			height: 24px;
+			margin: 10px 26px;
+			img {
+				width: 100%;
+			}
 		}
 	}
 }

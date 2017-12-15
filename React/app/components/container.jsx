@@ -15,11 +15,13 @@ class Container extends Component {
 		this.handleDeleteItem = this.handleDeleteItem.bind(this);
 		this.handleCompleteItem = this.handleCompleteItem.bind(this);
 		this.handleEditItem = this.handleEditItem.bind(this);
+		this.handleSortTypeChange = this.handleSortTypeChange.bind(this);
 
 		this.state = {
 			postShow: false,
 			doingItems: [],
 			doneItems: [],
+			sortType: 'create_time',
 		};
 	}
 
@@ -76,8 +78,26 @@ class Container extends Component {
 		});
 	}
 
+	handleSortTypeChange(type) {
+		let tempItems = this.state.doingItems;
+		if (type == "create_time") {
+			tempItems.sort((item1, item2) => {
+				return item1.createTime - item2.createTime
+			})
+		} else if(type == "priority") {
+			tempItems.sort((item1, item2) => {
+				return item1.priority - item2.priority
+			})
+		}
+		this.setState({
+			doingItems: tempItems,
+			sortType: type,
+		})
+	}
+
 	render() {
 		let [postShow, doingItems, doneItems] = [this.state.postShow, this.state.doingItems, this.state.doneItems];
+		let sortType = this.state.sortType;
 		return (
 			<div className="main-container"> 
 				<Header handlePostShow={this.handlePostShow} />
@@ -92,6 +112,8 @@ class Container extends Component {
 					handleDeleteItem={this.handleDeleteItem} 
 					handleCompleteItem={this.handleCompleteItem}
 					handleEditItem={this.handleEditItem}
+					handleSortTypeChange={this.handleSortTypeChange}
+					sortType={sortType}
 				/>
 				<ListDone  
 					items={doneItems} 
