@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 import './post.scss';
 
 class Post extends Component {
@@ -7,7 +10,17 @@ class Post extends Component {
 		super(props);
 		this.cancelPost = this.cancelPost.bind(this);
 		this.addItem = this.addItem.bind(this);
+		this.state = {
+      		startDate: moment()
+    	};
+    	this.handleChange = this.handleChange.bind(this);
 	}
+
+	handleChange(date) {
+    	this.setState({
+      		startDate: date
+    	});
+  	}	
 
 	cancelPost() {
 		this.props.handlePostShow(false)
@@ -30,8 +43,10 @@ class Post extends Component {
 		let item = {
 			createTime: createTime,
 			priority: itemPriority,
-			content: itemContent
+			content: itemContent,
+			expireDate: this.state.startDate
 		};
+		console.log(item.expireDate.format("YYYY/M/D"))
 		this.props.appendItem(item);
 		this.cancelPost();
 	}
@@ -60,7 +75,13 @@ class Post extends Component {
 								<input type="radio" name="priority" value="2" />P2
 								<input type="radio" name="priority" value="1" />P1
 							</div>
-							
+							<p className="expire-date">Expire Date:</p>
+							<div className="datePicker">
+								<DatePicker
+        							selected={this.state.startDate}
+        							onChange={this.handleChange}
+    							/>	
+							</div>
 						</form>
 					</div>
 				</div>

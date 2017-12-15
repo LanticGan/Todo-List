@@ -82,6 +82,9 @@ class DoingItems extends Component {
 							</form>
 						</div>
 					}
+						<div className="expire-date">
+							{item.expireDate.format("MM/DD/YYYY")}
+						</div>
 						<div className="cancel" onClick={this.deleteItem}>
 							<img src="assets/cancel.png" name={index} />
 						</div>

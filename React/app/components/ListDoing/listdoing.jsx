@@ -8,6 +8,7 @@ class ListDoing extends Component {
 		super(props);
 		this.changeSortTypeToCT = this.changeSortTypeToCT.bind(this);
 		this.changeSortTypeToPR = this.changeSortTypeToPR.bind(this);
+		this.changeSortTypeToDD = this.changeSortTypeToDD.bind(this);
 	}
 
 	changeSortTypeToCT() {
@@ -16,6 +17,10 @@ class ListDoing extends Component {
 
 	changeSortTypeToPR() {
 		this.props.handleSortTypeChange('priority');
+	}
+
+	changeSortTypeToDD() {
+		this.props.handleSortTypeChange('expire_date');
 	}
 
 	render() {
@@ -29,6 +34,9 @@ class ListDoing extends Component {
 				</div>
 				<div className="priority-sort" onClick={this.changeSortTypeToPR}>
 					<img src={sortType == 'priority' ? "assets/hot-active.png" : "assets/hot-default.png"} />
+				</div>
+				<div className="priority-sort" onClick={this.changeSortTypeToDD}>
+					<img src={sortType == 'expire_date' ? "assets/date-active.png" : "assets/date-default.png"} />
 				</div>
 			</div>
 		}

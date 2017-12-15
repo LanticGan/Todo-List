@@ -35,14 +35,23 @@
 		}
 	}
 
+
+	.expire-date {
+		display: inline-block;
+		margin: 0 10px 0 20px;
+		font-size: 14px;
+		color:#747474;
+	}
+
+
 	.post-filter {
 		display: inline-block;
 		p {
-			display: inline-block;
-			margin-right: 10px;
-			font-size: 14px;
-			color:#747474;
-		}
+		display: inline-block;
+		margin-right: 10px;
+		font-size: 14px;
+		color:#747474;
+	}
 		input {
 			margin: 0 5px;
 		}
@@ -75,4 +84,14 @@
 	left: 0;
 	z-index: -1000;
 	background: rgba(0, 0, 0, 0.3);
+}
+
+.datePicker {
+	p {
+		display: inline;
+		margin-right: 10px;
+		font-size: 14px;
+		color:#747474;
+	}
+	display:inline-block;
 }

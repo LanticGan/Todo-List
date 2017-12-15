@@ -80,15 +80,21 @@ class Container extends Component {
 
 	handleSortTypeChange(type) {
 		let tempItems = this.state.doingItems;
+
 		if (type == "create_time") {
 			tempItems.sort((item1, item2) => {
 				return item1.createTime - item2.createTime
 			})
-		} else if(type == "priority") {
+		} else if (type == "priority") {
 			tempItems.sort((item1, item2) => {
 				return item1.priority - item2.priority
 			})
+		} else if (type == "expire_date") {
+			tempItems.sort((item1, item2) => {
+				return item1.expireDate.unix() - item2.expireDate.unix()
+			})
 		}
+
 		this.setState({
 			doingItems: tempItems,
 			sortType: type,
