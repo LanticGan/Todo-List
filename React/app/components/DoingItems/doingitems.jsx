@@ -13,7 +13,7 @@ class DoingItems extends Component {
 		this.submitNewItem = this.submitNewItem.bind(this);
 
 		this.state = {
-			isEditing: false,
+			editingItemIndex: -1,
 			editingItem: ''
 		}
 	}
@@ -39,7 +39,7 @@ class DoingItems extends Component {
 		let [itemIndex, newItemContent] = [Number(e.target.getAttribute('itemindex')), e.target.newitem.value];
 
 		this.setState({
-			isEditing: false
+			editingItemIndex: -1
 		})
 		
 		this.props.handleEditItem(itemIndex, newItemContent);
@@ -47,16 +47,18 @@ class DoingItems extends Component {
 
 	showEdit(e) {
 		let text = e.target.textContent;
+		let itemID = e.target.getAttribute('itemID');
 		this.setState({
 			editingItem: text,
-			isEditing: true
+			editingItemIndex: itemID
 		})
 	}
 
 	render() {
 		let itemsContent = this.props.items,
 			items = [];
-		let isEditing = this.state.isEditing;
+		let isEditing = this.state.isEditing,
+			editingItemIndex = Number(this.state.editingItemIndex);
 		if (itemsContent.length) {
 			items = itemsContent.map((item, index) => {
 			let itemPrioriyClass = `priority-${item.priority}`
@@ -65,13 +67,13 @@ class DoingItems extends Component {
 					<div  className={`${itemPrioriyClass} done-box`} name={index} onClick={this.completeItem}>
 					</div>
 					{
-						!isEditing &&
-						<div className="item-content" onClick={this.showEdit}>
+						(editingItemIndex != index) &&
+						<div className="item-content" onClick={this.showEdit} itemID={index}>
 							{item.content}
 						</div>
 					}	
 					{
-						isEditing &&
+						(editingItemIndex == index) &&
 						<div className="edit-item">
 							<form onSubmit={this.submitNewItem} itemindex={index}>
 									<input className="item-input" type="text" name="newitem" 
