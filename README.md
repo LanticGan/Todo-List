@@ -4,6 +4,8 @@
 
 > UI参考： [www.todolist.com](www.todolist.com)。
 
+> 在线演示地址: [Demo](http://139.199.84.28:8000/static/public/index.html) (暂未对移动端进行适配)
+
 ### 功能说明
 
 - 支持增加一个待办事项
@@ -17,11 +19,11 @@
 
 ### 演示
 
-1. 对待办事项进行 添加/删除/标记。
+1. 对待办事项进行 添加/删除/标记/编辑。
 
 ![](https://github.com/LanticGan/Todo-List/blob/master/Preview/F1.gif)
 
-2. 选择待办事项的优先级/到期时间，并进行排序。
+2. 对待办事项的优先级/到期时间进行选择，并排序。
 
 ![](https://github.com/LanticGan/Todo-List/blob/master/Preview/F2.gif)
 
