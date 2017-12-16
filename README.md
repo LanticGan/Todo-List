@@ -4,7 +4,7 @@
 
 > UI参考： [www.todolist.com](www.todolist.com)。
 
-> 在线演示地址: [Demo](http://139.199.84.28:8000/static/public/index.html) (暂未对移动端进行适配)
+> 在线演示地址: [Demo](http://139.199.84.28:8000/static/public/index.html) (暂未对移动端进行适配)。
 
 ### 功能说明
 
@@ -23,7 +23,7 @@
 
 ![](https://github.com/LanticGan/Todo-List/blob/master/Preview/F1.gif)
 
-2. 对待办事项的优先级/到期时间进行选择，并排序。
+2. 对待办事项的优先级/到期时间进行选择并排序。
 
 ![](https://github.com/LanticGan/Todo-List/blob/master/Preview/F2.gif)
 
