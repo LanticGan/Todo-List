@@ -5,8 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('todo.urls')),
 ]
 
-
-urlpatterns = [
-] + static(settings.STATIC_URL)
+urlpatterns = urlpatterns + static(settings.STATIC_URL)
