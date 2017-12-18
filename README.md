@@ -4,7 +4,6 @@
 
 > UI参考： [www.todolist.com](www.todolist.com)。
 
-> 在线演示地址: [Demo](http://139.199.84.28:8000/static/public/index.html) (暂未对移动端进行适配)。
 
 ### 功能说明
 
@@ -31,7 +30,7 @@
 
 #### 环境要求
 
-1. Python2.7 + Django1.8
+Python2.7 + Django1.8 + Django REST framework
 
 #### 执行代码
 
