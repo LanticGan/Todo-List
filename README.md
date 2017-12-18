@@ -1,8 +1,6 @@
 ## Todo-List
 
-> 技术架构：
-	- 后端： Django + Django Rest framework
-	- 前端： React + Webpack + Sass 
+> 技术架构：Django + Django Rest framework + React + Webpack + Sass 
 
 > UI参考：[www.todolist.com](www.todolist.com)
 
