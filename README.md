@@ -1,6 +1,8 @@
 ## Todo-List
 
-> 技术架构：主要功能由React实现，Django提供对静态文件的支持
+> 技术架构：
+	- 后端： Django + Django Rest framework
+	- 前端： React + Webpack + Sass 
 
 > UI参考：[www.todolist.com](www.todolist.com)
 
