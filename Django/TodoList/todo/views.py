@@ -26,9 +26,7 @@ def todo_list(request):
         serializer = SnippetSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-            res = JsonResponse(serializer.data, status=201)
-            res['Access-Control-Allow-Origin'] = '*'
-            return res
+            return JsonResponse(serializer.data, status=200)
         return JsonResponse(serializer.errors, status=400)
 
 
@@ -39,9 +37,7 @@ def todo_item_detail(request, pk):
     try:
         todoItem = Todo.objects.get(pk=pk)
     except Todo.DoesNotExist:
-    	res = HttpResponse(status=404)
-        res['Access-Control-Allow-Origin'] = '*'
-        return res
+        return HttpResponse(status=404)
 
     # 编辑Todo Item
     if request.method == 'PUT':
@@ -55,6 +51,4 @@ def todo_item_detail(request, pk):
     # 删除Todo Item
     elif request.method == 'DELETE':
         todoItem.delete()
-        res = HttpResponse()
-        res['Access-Control-Allow-Origin'] = '*'
-        return res
+        return HttpResponse(status=200)
