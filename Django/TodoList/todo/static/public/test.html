@@ -4,15 +4,22 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.0/moment.min.js"></script>
 </head>
 <body>
 <script>
 	$.ajax({
-		url:'/snippets/',
-		type: 'GET',
-		data: '{"title":"666"}',
+		url:'/item/3/',
+		type: 'DELETE',
+		data: JSON.stringify({
+		  content: '吃饭',
+		  expiredata: "1513564856734",
+		}),
 		success: function(data) {
+			/*let ct = Date.parse(data[1].created),
+				ed = data[1].expiredata;*/
 			console.log(data)
+
 		}
 	})
 </script>

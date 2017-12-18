@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.renderers import JSONRenderer
@@ -9,48 +11,50 @@ from todo.serializers import SnippetSerializer
 
 @csrf_exempt
 def todo_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
 
-
+    #获取Todo List
     if request.method == 'GET':
-        snippets = Todo.objects.all()
-        serializer = SnippetSerializer(snippets, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        toDoList = Todo.objects.all()
+        serializer = SnippetSerializer(toDoList, many=True)
+        res = JsonResponse(serializer.data, safe=False)
+        res['Access-Control-Allow-Origin'] = '*'
+        return res
 
+    #新建Todo Item
     elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = SnippetSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
+            res = JsonResponse(serializer.data, status=201)
+            res['Access-Control-Allow-Origin'] = '*'
+            return res
         return JsonResponse(serializer.errors, status=400)
 
 
 
-
-def todo_detail(request, pk):
-    """
-    Retrieve, update or delete a code snippet.
-    """
+@csrf_exempt
+def todo_item_detail(request, pk):
+    
     try:
-        snippet = Todo.objects.get(pk=pk)
+        todoItem = Todo.objects.get(pk=pk)
     except Todo.DoesNotExist:
-        return HttpResponse(status=404)
+    	res = HttpResponse(status=404)
+        res['Access-Control-Allow-Origin'] = '*'
+        return res
 
-    if request.method == 'GET':
-        serializer = SnippetSerializer(snippet)
-        return JsonResponse(serializer.data)
-
-    elif request.method == 'PUT':
+    # 编辑Todo Item
+    if request.method == 'PUT':
         data = JSONParser().parse(request)
-        serializer = SnippetSerializer(snippet, data=data)
+        serializer = SnippetSerializer(todoItem, data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data)
         return JsonResponse(serializer.errors, status=400)
 
+    # 删除Todo Item
     elif request.method == 'DELETE':
-        snippet.delete()
-        return HttpResponse(status=204)
+        todoItem.delete()
+        res = HttpResponse()
+        res['Access-Control-Allow-Origin'] = '*'
+        return res

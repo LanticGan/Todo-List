@@ -46,7 +46,8 @@ class Post extends Component {
 			content: itemContent,
 			expireDate: this.state.startDate
 		};
-		console.log(item.expireDate.format("YYYY/M/D"))
+		console.log(item.expireDate.format("MM/DD/YYYY"))
+		
 		this.props.appendItem(item);
 		this.cancelPost();
 	}
