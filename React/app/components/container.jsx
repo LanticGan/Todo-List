@@ -36,8 +36,7 @@ class Container extends Component {
 					completeItems = [];
 
 				data.forEach(function(element, index) {
-					let item = {},
-						moment = require('moment');
+					let item = {};
 
 					item.id = element.id;
 					item.content = element.content;
@@ -45,7 +44,6 @@ class Container extends Component {
 					item.priority = element.priority;
 					item.expireDate = moment.unix(element.expiredate);
 					item.complete = element.complete;
-					console.log(item)
 
 					if (item.complete) {
 						completeItems.push(item)
@@ -104,6 +102,7 @@ class Container extends Component {
 			this.setState({
 				doingItems: tempItems
 			});
+
 		} else {
 			tempItems = this.state.doneItems;
 			deleteItemId = tempItems[index].id

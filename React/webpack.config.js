@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
   devtool: 'eval-source-map',
 
@@ -32,5 +34,10 @@ module.exports = {
               ]
             },
         ]
-    }
+    },
+
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 }
