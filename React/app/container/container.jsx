@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header/header.jsx';
 import Post from '../components/Post/post.jsx';
 import ListDoing from '../components/ListDoing/listdoing.jsx';
-import ListDone from '../components/ListDone/listdone.jsx'
+import ListDone from '../components/ListDone/listdone.jsx';
 
 import './container.scss';
 
@@ -27,7 +27,7 @@ class Container extends Component {
 
 	componentDidMount() {
 
-  	}
+	}
 
 	handlePostShow(condition) {
 		this.setState({
@@ -58,7 +58,7 @@ class Container extends Component {
 
 		if (type == 0) {
 			tempItems = this.state.doingItems;
-			deleteItemId = tempItems[index].id
+			deleteItemId = tempItems[index].id;
 			tempItems.splice(index, 1);
 			this.setState({
 				doingItems: tempItems
@@ -66,7 +66,7 @@ class Container extends Component {
 
 		} else {
 			tempItems = this.state.doneItems;
-			deleteItemId = tempItems[index].id
+			deleteItemId = tempItems[index].id;
 			tempItems.splice(index, 1);
 			this.setState({
 				doneItems: tempItems
