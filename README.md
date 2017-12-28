@@ -1,6 +1,6 @@
 ## Todo-List
 
-> 技术架构：Django + Django REST framework + React + Webpack + Sass 
+> 技术架构：React + Mobx + Webpack + Sass 
 
 > UI参考：[www.todolist.com](www.todolist.com)
 
@@ -29,19 +29,13 @@
 
 ### 本地演示方法
 
-#### 环境要求
-
-Python2.7 + Django1.8 + Django REST framework
-
-#### 执行代码
-
 ```
 git clone https://github.com/LanticGan/Todo-List
 
-cd Todo-List/Django/TodoList
+cd Todo-List/React
 
-python manage.py runserver
+npm run server
 ```
 
-服务器启动后访问 127.0.0.1:8000/static/public/index.html 即可。
+服务器启动后访问 127.0.0.1:8080 即可。
 
