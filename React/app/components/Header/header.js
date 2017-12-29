@@ -1,14 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './header.scss';
 
 class Header extends Component {
 
 	constructor(props) {
 		super(props);
-		this.addTodoItem = this.addTodoItem.bind(this);
 	}
 
-	addTodoItem() {
+	addTodoItem = () => {
 		this.props.store.handlePostShow(true);
 	}
 	
@@ -17,7 +16,7 @@ class Header extends Component {
 			<header>
 				<div className="header-content">
 					<label>TodoList</label>
-					<div className="add-icon" onClick={this.addTodoItem}>
+					<div className="add-icon" onClick={ this.addTodoItem }>
 						<img src="assets/add.png" alt="+" />
 					</div>
 				</div>
@@ -26,4 +25,4 @@ class Header extends Component {
 	}
 }
 
-export default Header
+export default Header;
