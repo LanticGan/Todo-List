@@ -7,41 +7,41 @@ class DoneItems extends Component {
 
 	constructor(props) {
 		super(props);
-		this.deleteItem = this.deleteItem.bind(this);
 	}
 
-	deleteItem(e) {
+	deleteItem = (e) => {
 		let itemId = Number(e.target.name);
 		this.props.store.deleteItem(1, itemId);
 	}
 
 	render() {
-		let { store } = this.props;
-		let itemsContent = store.doneItems;
-		let items = [];
+		const { store } = this.props;
+		let itemsContent = store.doneItems,
+			items = [];
+
 		if (itemsContent.length) {
 			items = itemsContent.map((item, index) => {
-			return (
-				<div className="item" key={index}>
-					<div className="done-box">
-						<img src="assets/done.png"/>
+				return (
+					<div className="item" key={ index }>
+						<div className="done-box">
+							<img src="assets/done.png"/>
+						</div>
+						<div className="item-content">
+							{ item.content }
+						</div>
+						<div className="cancel" onClick={ this.deleteItem }>
+							<img src="assets/cancel.png" name={ index } />
+						</div>
 					</div>
-					<div className="item-content">
-						{item.content}
-					</div>
-					<div className="cancel" onClick={this.deleteItem}>
-						<img src="assets/cancel.png" name={index} />
-					</div>
-				</div>);
+				);
 			});
 		}
-
 		return (
 			<div className="done-items">
-				{items}
+				{ items }
 			</div>
 		);
 	}
 }
 
-export default DoneItems
+export default DoneItems;
