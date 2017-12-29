@@ -56,6 +56,8 @@ class TodoListStore {
 		this.ordering = type;
 		// 根据创建时间排序
 		if (type == 'create_time') {
+			// 根据Mobx源码，observableArray的sort函数会返回新数组而不更改原数组
+			// 这里做了一个赋值，方便组件重新渲染。
 			this.doingItems = this.doingItems.sort((item1, item2) => {
 				return item1.createTime - item2.createTime;
 			});

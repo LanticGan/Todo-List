@@ -61,7 +61,7 @@ class Post extends Component {
 								<img src="assets/cancel.png" />
 							</div>
 						</div>
-						<form onSubmit={this.addItem}>
+						<form onSubmit={ this.addItem }>
 							<div className="post-input">
 								<input type="text" name="itemContent" placeholder="请输入todo item" autoFocus/>
 							</div>
