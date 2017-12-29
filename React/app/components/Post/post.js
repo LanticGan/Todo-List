@@ -26,15 +26,13 @@ class Post extends Component {
 
 	addItem = (e) => {
 		e.preventDefault();
-		let ctObj = new Date();
-		let itemPriority = Number(e.target.priority.value),
+		let ctObj = new Date(),
+		    itemPriority = Number(e.target.priority.value),
 			createTime = ctObj.getTime(),
 			itemContent = e.target.itemContent.value,
 			expireDate = this.state.startDate;
 		
-		/*
-		 默认优先级为3
-		*/
+		// 默认优先级为3
 		if (!itemPriority) {
 			itemPriority = 3;
 		}
@@ -59,7 +57,7 @@ class Post extends Component {
 					<div className="post-container">
 						<div className="post-title">
 							<label>添加任务</label>
-							<div className="cancel-icon" onClick={this.cancelPost}>
+							<div className="cancel-icon" onClick={ this.cancelPost }>
 								<img src="assets/cancel.png" />
 							</div>
 						</div>
@@ -77,8 +75,8 @@ class Post extends Component {
 							<p className="expire-date">Expire Date:</p>
 							<div className="datePicker">
 								<DatePicker
-        							selected={this.state.startDate}
-        							onChange={this.handleChange}
+        							selected={ this.state.startDate }
+        							onChange={ this.handleChange }
     							/>	
 							</div>
 						</form>
@@ -91,4 +89,4 @@ class Post extends Component {
 	}
 }
 
-export default Post
+export default Post;
