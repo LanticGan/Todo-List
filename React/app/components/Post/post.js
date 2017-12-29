@@ -20,11 +20,11 @@ class Post extends Component {
     	});
   	}	
 
-	cancelPost() {
+	cancelPost = () => {
 		this.props.store.handlePostShow(false);
 	}
 
-	addItem(e) {
+	addItem = (e) => {
 		e.preventDefault();
 		let ctObj = new Date();
 		let itemPriority = Number(e.target.priority.value),
@@ -47,6 +47,7 @@ class Post extends Component {
 		};
 		
 		this.props.store.addItem(item);
+		this.cancelPost();
 	}
 
 	render() {

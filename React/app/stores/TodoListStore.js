@@ -56,19 +56,19 @@ class TodoListStore {
 		this.ordering = type;
 		// 根据创建时间排序
 		if (type == 'create_time') {
-			this.doingItems.sort((item1, item2) => {
+			this.doingItems = this.doingItems.sort((item1, item2) => {
 				return item1.createTime - item2.createTime;
 			});
 		} 
 		// 根据优先级排序
 		else if (type == 'priority') {
-			this.doingItems.sort((item1, item2) => {
+			this.doingItems = this.doingItems.sort((item1, item2) => {
 				return item1.priority - item2.priority;
 			});
 		} 
 		// 根据截止时间排序
 		else if (type == 'expire_date') {
-			this.doingItems.sort((item1, item2) => {
+			this.doingItems = this.doingItems.sort((item1, item2) => {
 				return item1.expireDate.unix() - item2.expireDate.unix();
 			});
 		}

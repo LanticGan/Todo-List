@@ -8,21 +8,18 @@ class ListDoing extends Component {
 
 	constructor(props) {
 		super(props);
-		this.changeSortTypeToCT = this.changeSortTypeToCT.bind(this);
-		this.changeSortTypeToPR = this.changeSortTypeToPR.bind(this);
-		this.changeSortTypeToDD = this.changeSortTypeToDD.bind(this);
 	}
 
-	changeSortTypeToCT() {
-		this.props.handleSortTypeChange('create_time');
+	changeSortTypeToCT = () => {
+		this.props.store.changeOrdering('create_time');
 	}
 
-	changeSortTypeToPR() {
-		this.props.handleSortTypeChange('priority');
+	changeSortTypeToPR = () => {
+		this.props.store.changeOrdering('priority');
 	}
 
-	changeSortTypeToDD() {
-		this.props.handleSortTypeChange('expire_date');
+	changeSortTypeToDD = () => {
+		this.props.store.changeOrdering('expire_date');
 	}
 
 	render() {

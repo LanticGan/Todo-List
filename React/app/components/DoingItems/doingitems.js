@@ -21,7 +21,7 @@ class DoingItems extends React.Component {
 	}
 
 	deleteItem(e) {
-		this.props.handleDeleteItem(itemId, 0);
+		let itemId = e.target.name;
 		this.props.store.deleteItem(0, itemId);
 	}
 
