@@ -1,28 +1,26 @@
-import React, {Component} from 'react';
+import React from 'react';
 import DatePicker from 'react-datepicker';
+import { observer } from 'mobx-react';
 import 'react-datepicker/dist/react-datepicker.css';
 import './post.scss';
 
-class Post extends Component {
-
+@observer
+class Post extends React.Component {
 	constructor(props) {
 		super(props);
-		this.cancelPost = this.cancelPost.bind(this);
-		this.addItem = this.addItem.bind(this);
 		this.state = {
       		startDate: moment()
     	};
-    	this.handleChange = this.handleChange.bind(this);
 	}
 
-	handleChange(date) {
+	handleChange = (date) => {
     	this.setState({
       		startDate: date
     	});
   	}	
 
 	cancelPost() {
-		this.props.handlePostShow(false)
+		this.props.store.handlePostShow(false);
 	}
 
 	addItem(e) {
@@ -46,12 +44,11 @@ class Post extends Component {
 			expireDate: this.state.startDate
 		};
 		
-		this.props.appendItem(item);
-		this.cancelPost();
+		this.props.store.addItem(item);
 	}
 
 	render() {
-		let show = this.props.show;
+		let show = this.props.store.postShow;
 		if (show) {
 			return (
 				<div>

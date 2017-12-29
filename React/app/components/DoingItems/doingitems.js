@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { observer } from 'mobx-react';
 import './doingitems.scss';
 
-class DoingItems extends Component {
+@observer
+class DoingItems extends React.Component {
 
 	constructor(props) {
 		super(props);

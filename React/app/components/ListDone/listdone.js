@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import DoneItems from '../DoneItems/doneitems.jsx';
+import DoneItems from '../DoneItems/doneitems.js';
 import './listdone.scss';
 
 class ListDone extends Component {

@@ -9,7 +9,7 @@ class Header extends Component {
 	}
 
 	addTodoItem() {
-		this.props.handlePostShow(true)
+		this.props.store.handlePostShow(true);
 	}
 	
 	render() {
