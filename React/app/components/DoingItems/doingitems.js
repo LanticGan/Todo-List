@@ -4,13 +4,13 @@ import './doingitems.scss';
 
 @observer
 class DoingItems extends Component {
-
 	constructor(props) {
 		super(props);
-		this.state = {
-			editingItemIndex: -1,
-			editingItem: ''
-		}
+	}
+
+	state = {
+		editingItemIndex: -1,
+		editingItem: ''
 	}
 
 	deleteItem = (e) => {
@@ -42,8 +42,8 @@ class DoingItems extends Component {
 	}
 
 	showEdit = (e) => {
-		let text = e.target.textContent;
-		let itemID = e.target.getAttribute('itemID');
+		let text = e.target.textContent,
+			itemID = e.target.getAttribute('itemID');
 		this.setState({
 			editingItem: text,
 			editingItemIndex: itemID
@@ -53,9 +53,10 @@ class DoingItems extends Component {
 	render() {
 		const { store } = this.props;
 		let itemsContent = store.doingItems,
-			items = [];
-		let isEditing = this.state.isEditing,
+			items = [],
+			isEditing = this.state.isEditing,
 			editingItemIndex = Number(this.state.editingItemIndex);
+
 		if (itemsContent.length) {
 			items = itemsContent.map((item, index) => {
 				let itemPrioriyClass = `priority-${item.priority}`
@@ -72,20 +73,20 @@ class DoingItems extends Component {
 						{
 							(editingItemIndex == index) &&
 							<div className="edit-item">
-								<form onSubmit={this.submitNewItem} itemindex={index}>
+								<form onSubmit={ this.submitNewItem } itemindex={ index }>
 										<input className="item-input" type="text" name="newitem" 
-											value={this.state.editingItem} onChange={this.editItem} 
+											value={ this.state.editingItem } onChange={ this.editItem } 
 											autoFocus
 										/>
-										<input type="submit" style={{display:'none'}} />
+										<input type="submit" style={ { display:'none' } } />
 								</form>
 							</div>
 						}
 							<div className="expire-date">
-								{item.expireDate.format("MM/DD/YYYY")}
+								{ item.expireDate.format("MM/DD/YYYY") }
 							</div>
-							<div className="cancel" onClick={this.deleteItem}>
-								<img src="assets/cancel.png" name={index} />
+							<div className="cancel" onClick={ this.deleteItem }>
+								<img src="assets/cancel.png" name={ index } />
 							</div>
 					</div>
 				);
@@ -93,7 +94,7 @@ class DoingItems extends Component {
 		}
 		return (
 			<div className="doing-items">
-				{items}
+				{ items }
 			</div>
 		);
 	}
