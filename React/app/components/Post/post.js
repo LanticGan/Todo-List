@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import { observer } from 'mobx-react';
 import 'react-datepicker/dist/react-datepicker.css';
 import './post.scss';
 
 @observer
-class Post extends React.Component {
+class Post extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-      		startDate: moment()
-    	};
+	}
+
+	state = {
+		startDate: moment()
 	}
 
 	handleChange = (date) => {
@@ -28,7 +29,8 @@ class Post extends React.Component {
 		let ctObj = new Date();
 		let itemPriority = Number(e.target.priority.value),
 			createTime = ctObj.getTime(),
-			itemContent = e.target.itemContent.value;
+			itemContent = e.target.itemContent.value,
+			expireDate = this.state.startDate;
 		
 		/*
 		 默认优先级为3
@@ -41,7 +43,7 @@ class Post extends React.Component {
 			createTime: createTime,
 			priority: itemPriority,
 			content: itemContent,
-			expireDate: this.state.startDate
+			expireDate: expireDate
 		};
 		
 		this.props.store.addItem(item);

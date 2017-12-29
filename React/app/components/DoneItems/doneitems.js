@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import { observer } from 'mobx-react';
 import './doneitems.scss';
 
+@observer 
 class DoneItems extends Component {
 
 	constructor(props) {
@@ -10,11 +12,12 @@ class DoneItems extends Component {
 
 	deleteItem(e) {
 		let itemId = Number(e.target.name);
-		this.props.handleDeleteItem(itemId, 1);
+		this.props.store.deleteItem(1, itemId);
 	}
 
 	render() {
-		let itemsContent = this.props.items;
+		let { store } = this.props;
+		let itemsContent = store.doneItems;
 		let items = [];
 		if (itemsContent.length) {
 			items = itemsContent.map((item, index) => {

@@ -21,13 +21,13 @@ class DoingItems extends React.Component {
 	}
 
 	deleteItem(e) {
-		let itemId = Number(e.target.name);
 		this.props.handleDeleteItem(itemId, 0);
+		this.props.store.deleteItem(0, itemId);
 	}
 
 	completeItem(e) {
 		let itemId = Number(e.target.getAttribute('name'));
-		this.props.handleCompleteItem(itemId);
+		this.props.store.completeItem(itemId);
 	}
 
 	editItem(e) {
@@ -44,7 +44,7 @@ class DoingItems extends React.Component {
 			editingItemIndex: -1
 		})
 		
-		this.props.handleEditItem(itemIndex, newItemContent);
+		this.props.store.editItem(itemIndex, newItemContent);
 	}
 
 	showEdit(e) {
@@ -57,7 +57,8 @@ class DoingItems extends React.Component {
 	}
 
 	render() {
-		let itemsContent = this.props.items,
+		let { store } = this.props;
+		let itemsContent = store.doingItems,
 			items = [];
 		let isEditing = this.state.isEditing,
 			editingItemIndex = Number(this.state.editingItemIndex);
