@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import DoneItems from '../DoneItems/doneitems.js';
 import './listdone.scss';
@@ -8,17 +8,19 @@ class ListDone extends Component {
 	constructor(props) {
 		super(props);
 	}
+
 	render() {
-		let { store } = this.props;
+		const { store } = this.props;
 		let doneItemsLength = store.doneItems.length;
+		
 		return(
 			<div className="list-done">
 				<div className="list-done-title">
 					<label>已完成</label>
-					<div className="items-number">{doneItemsLength}</div>
+					<div className="items-number">{ doneItemsLength }</div>
 				</div>
 				<DoneItems 
-					store={store} />
+					store={ store } />
 			</div>
 		);
 	}
