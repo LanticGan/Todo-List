@@ -22,15 +22,15 @@ class DoneItems extends Component {
 		if (itemsContent.length) {
 			items = itemsContent.map((item, index) => {
 				return (
-					<div className="item" key={ index }>
+					<div className="item" key={index}>
 						<div className="done-box">
 							<img src="assets/done.png"/>
 						</div>
 						<div className="item-content">
-							{ item.content }
+							{item.content}
 						</div>
-						<div className="cancel" onClick={ this.deleteItem }>
-							<img src="assets/cancel.png" name={ index } />
+						<div className="cancel" onClick={this.deleteItem}>
+							<img src="assets/cancel.png" name={index} />
 						</div>
 					</div>
 				);
@@ -38,7 +38,7 @@ class DoneItems extends Component {
 		}
 		return (
 			<div className="done-items">
-				{ items }
+				{items}
 			</div>
 		);
 	}

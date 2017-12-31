@@ -73,20 +73,20 @@ class DoingItems extends Component {
 						{
 							(editingItemIndex == index) &&
 							<div className="edit-item">
-								<form onSubmit={ this.submitNewItem } itemindex={ index }>
+								<form onSubmit={this.submitNewItem} itemindex={index}>
 										<input className="item-input" type="text" name="newitem" 
 											value={ this.state.editingItem } onChange={ this.editItem } 
 											autoFocus
 										/>
-										<input type="submit" style={ { display:'none' } } />
+										<input type="submit" style={{display:'none'}} />
 								</form>
 							</div>
 						}
 							<div className="expire-date">
-								{ item.expireDate.format("MM/DD/YYYY") }
+								{item.expireDate.format("MM/DD/YYYY")}
 							</div>
-							<div className="cancel" onClick={ this.deleteItem }>
-								<img src="assets/cancel.png" name={ index } />
+							<div className="cancel" onClick={this.deleteItem}>
+								<img src="assets/cancel.png" name={index} />
 							</div>
 					</div>
 				);
@@ -94,7 +94,7 @@ class DoingItems extends Component {
 		}
 		return (
 			<div className="doing-items">
-				{ items }
+				{items}
 			</div>
 		);
 	}

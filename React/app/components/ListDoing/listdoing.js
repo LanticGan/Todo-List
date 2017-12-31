@@ -31,14 +31,14 @@ class ListDoing extends Component {
 		if (doingItemsLength) {
 			listDoingSortBar = 
 			<div className="list-doing-sort">
-				<div className="create-time-sort" onClick={ this.changeSortTypeToCT }>
-					<img src={ sortType == 'create_time' ? "assets/time-active.png" : "assets/time-default.png" } />
+				<div className="create-time-sort" onClick={this.changeSortTypeToCT}>
+					<img src={sortType == 'create_time' ? "assets/time-active.png" : "assets/time-default.png"} />
 				</div>
-				<div className="priority-sort" onClick={ this.changeSortTypeToPR }>
-					<img src={ sortType == 'priority' ? "assets/hot-active.png" : "assets/hot-default.png" } />
+				<div className="priority-sort" onClick={this.changeSortTypeToPR}>
+					<img src={sortType == 'priority' ? "assets/hot-active.png" : "assets/hot-default.png"} />
 				</div>
-				<div className="priority-sort" onClick={ this.changeSortTypeToDD }>
-					<img src={ sortType == 'expire_date' ? "assets/date-active.png" : "assets/date-default.png" } />
+				<div className="priority-sort" onClick={this.changeSortTypeToDD}>
+					<img src={sortType == 'expire_date' ? "assets/date-active.png" : "assets/date-default.png"} />
 				</div>
 			</div>
 		}

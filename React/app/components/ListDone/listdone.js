@@ -17,10 +17,10 @@ class ListDone extends Component {
 			<div className="list-done">
 				<div className="list-done-title">
 					<label>已完成</label>
-					<div className="items-number">{ doneItemsLength }</div>
+					<div className="items-number">{doneItemsLength}</div>
 				</div>
 				<DoneItems 
-					store={ store } />
+					store={store} />
 			</div>
 		);
 	}

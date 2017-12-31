@@ -57,11 +57,11 @@ class Post extends Component {
 					<div className="post-container">
 						<div className="post-title">
 							<label>添加任务</label>
-							<div className="cancel-icon" onClick={ this.cancelPost }>
+							<div className="cancel-icon" onClick={this.cancelPost}>
 								<img src="assets/cancel.png" />
 							</div>
 						</div>
-						<form onSubmit={ this.addItem }>
+						<form onSubmit={this.addItem}>
 							<div className="post-input">
 								<input type="text" name="itemContent" placeholder="请输入todo item" autoFocus/>
 							</div>
@@ -75,8 +75,8 @@ class Post extends Component {
 							<p className="expire-date">Expire Date:</p>
 							<div className="datePicker">
 								<DatePicker
-        							selected={ this.state.startDate }
-        							onChange={ this.handleChange }
+        							selected={this.state.startDate}
+        							onChange={this.handleChange}
     							/>	
 							</div>
 						</form>

@@ -16,7 +16,7 @@ class Header extends Component {
 			<header>
 				<div className="header-content">
 					<label>TodoList</label>
-					<div className="add-icon" onClick={ this.addTodoItem }>
+					<div className="add-icon" onClick={this.addTodoItem}>
 						<img src="assets/add.png" alt="+" />
 					</div>
 				</div>
